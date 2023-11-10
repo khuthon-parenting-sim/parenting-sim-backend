@@ -25,9 +25,19 @@ public class ScenarioResultService {
 
         User user1 = userRepository.findById(user).get();
 
+        user1.setScore_total(user1.getScore_total() + scenarioResult.getScore_society() + scenarioResult.getScore_control() + scenarioResult.getScore_recognition() + scenarioResult.getScore_concentration());
+
+        user1.setScore_society(user1.getScore_society() + scenarioResult.getScore_society());
+        user1.setScore_control(user1.getScore_control() + scenarioResult.getScore_control());
+        user1.setScore_recognition(user1.getScore_recognition() + scenarioResult.getScore_recognition());
+        user1.setScore_concentration(user1.getScore_concentration() + scenarioResult.getScore_concentration());
+
+        userRepository.save(user1);
+
         UserLog userLog = UserLog.builder()
                 .id(userLogId++)
                 .scenario(scenarioResult.getScenario())
+                .scenarioResult(scenarioResult)
                 .user(user1)
                 .timestamp(System.currentTimeMillis())
                 .build();
