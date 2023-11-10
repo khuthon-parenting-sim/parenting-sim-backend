@@ -2,9 +2,7 @@ package lomayd.parentingsim.api.domain.scenario;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Builder
@@ -21,26 +19,35 @@ public class Scenario {
     private int episode;
 
     @Column
-    private int choice_1;
-
-    @Column
-    private int choice_2;
-
-    @Column
     private int illustration;
 
     @Column
     private String script;
 
     @Column
-    private double score_point;
+    private boolean isEnd;
 
     @Column
-    private double score_patient;
+    private int choice_1;
 
     @Column
-    private double score_manner;
+    private String choice_1_script;
 
     @Column
-    private double score_concentration;
+    private int choice_2;
+
+    @Column
+    private String choice_2_script;
+
+    @Column
+    private int choice_3;
+
+    @Column
+    private String choice_3_script;
+
+    @Column
+    private int choice_4;
+
+    @Column
+    private String choice_4_script;
 }

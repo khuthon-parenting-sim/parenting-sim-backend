@@ -17,18 +17,12 @@ public class ScenarioController {
     private final ScenarioService scenarioService;
 
     @GetMapping("/start")
-    public ResponseEntity<ScenarioResponseDto.Script> startEpisode(@RequestParam int episode) {
+    public ResponseEntity<ScenarioResponseDto.ScenarioScript> startEpisode(@RequestParam int episode) {
         return ResponseEntity.ok(scenarioService.startEpisode(episode));
     }
 
-    @GetMapping
-    public ResponseEntity<ScenarioResponseDto.Script> playEpisode(@RequestParam int scenario, @RequestParam String user) {
-        return ResponseEntity.ok(scenarioService.playEpisode(scenario, user));
+    @GetMapping("/next")
+    public ResponseEntity<ScenarioResponseDto.ScenarioScript> nextScenario(@RequestParam int scenario) {
+        return ResponseEntity.ok(scenarioService.nextScenario(scenario));
     }
-
-    @GetMapping("/result")
-    public ResponseEntity<ScenarioResponseDto.Result> getResult(@RequestParam String user) {
-        return ResponseEntity.ok(scenarioService.getResult(user));
-    }
-
 }

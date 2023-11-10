@@ -1,7 +1,6 @@
 package lomayd.parentingsim.api.domain.scenario.dto;
 
 import lomayd.parentingsim.api.domain.scenario.Scenario;
-import lomayd.parentingsim.api.domain.user.User;
 import lombok.*;
 
 @RequiredArgsConstructor
@@ -12,7 +11,7 @@ public class ScenarioResponseDto {
     @Setter
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class Script {
+    public static class ScenarioScript {
 
         private int id;
         private int episode;
@@ -20,47 +19,30 @@ public class ScenarioResponseDto {
         private String script;
         private int choice_1_id;
         private String choice_1_script;
-        private double choice_1_rate;
         private int choice_2_id;
         private String choice_2_script;
-        private double choice_2_rate;
+        private int choice_3_id;
+        private String choice_3_script;
+        private int choice_4_id;
+        private String choice_4_script;
+        private boolean isEnd;
 
-        public static Script of(Scenario scenario, Scenario choice_1_scenario, Scenario choice_2_scenario) {
+        public static ScenarioResponseDto.ScenarioScript of(Scenario scenario) {
 
-            return Script.builder()
+            return ScenarioScript.builder()
                     .id(scenario.getId())
                     .episode(scenario.getEpisode())
                     .illustration(scenario.getIllustration())
                     .script(scenario.getScript())
-                    .choice_1_id(choice_1_scenario.getId())
-                    .choice_1_script(choice_1_scenario.getScript())
-                    .choice_2_id(choice_2_scenario.getId())
-                    .choice_2_script(choice_2_scenario.getScript())
-                    .build();
-        }
-    }
-
-    @Builder
-    @Getter
-    @Setter
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class Result {
-
-        private String user;
-        private double score_point;
-        private double score_patient;
-        private double score_manner;
-        private double score_concentration;
-
-        public static Result of(User user) {
-
-            return Result.builder()
-                    .user(user.getId())
-                    .score_point(user.getScore_point())
-                    .score_patient(user.getScore_patient())
-                    .score_manner(user.getScore_manner())
-                    .score_concentration(user.getScore_concentration())
+                    .choice_1_id(scenario.getChoice_1())
+                    .choice_1_script(scenario.getChoice_1_script())
+                    .choice_2_id(scenario.getChoice_2())
+                    .choice_2_script(scenario.getChoice_2_script())
+                    .choice_3_id(scenario.getChoice_3())
+                    .choice_3_script(scenario.getChoice_3_script())
+                    .choice_4_id(scenario.getChoice_3())
+                    .choice_4_script(scenario.getChoice_3_script())
+                    .isEnd(scenario.isEnd())
                     .build();
         }
     }

@@ -1,4 +1,4 @@
-package lomayd.parentingsim.api.domain.user;
+package lomayd.parentingsim.api.domain.scenario;
 
 import lombok.*;
 
@@ -10,13 +10,16 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class ScenarioResult {
 
     @Id
-    private String id;
+    private int id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Scenario scenario;
 
     @Column
-    private double score_total;
+    private String script;
 
     @Column
     private double score_society;

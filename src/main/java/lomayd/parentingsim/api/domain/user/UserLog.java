@@ -1,6 +1,7 @@
 package lomayd.parentingsim.api.domain.user;
 
 import lomayd.parentingsim.api.domain.scenario.Scenario;
+import lomayd.parentingsim.api.domain.scenario.ScenarioResult;
 import lombok.*;
 
 import javax.persistence.*;
@@ -21,6 +22,9 @@ public class UserLog {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Scenario scenario;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private ScenarioResult scenarioResult;
 
     @Column
     private long timestamp;
