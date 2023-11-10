@@ -25,7 +25,7 @@ public class Scenario {
     private String script;
 
     @Column
-    private boolean isEnd;
+    private boolean is_end;
 
     @Column
     private int choice_1;

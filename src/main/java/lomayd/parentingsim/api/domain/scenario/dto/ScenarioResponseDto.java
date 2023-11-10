@@ -25,7 +25,7 @@ public class ScenarioResponseDto {
         private String choice_3_script;
         private int choice_4_id;
         private String choice_4_script;
-        private boolean isEnd;
+        private boolean is_end;
 
         public static ScenarioResponseDto.ScenarioScript of(Scenario scenario) {
 
@@ -42,7 +42,7 @@ public class ScenarioResponseDto {
                     .choice_3_script(scenario.getChoice_3_script())
                     .choice_4_id(scenario.getChoice_3())
                     .choice_4_script(scenario.getChoice_3_script())
-                    .isEnd(scenario.isEnd())
+                    .is_end(scenario.is_end())
                     .build();
         }
     }

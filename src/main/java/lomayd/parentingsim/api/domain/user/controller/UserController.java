@@ -16,8 +16,8 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/join")
-    public ResponseEntity<Void> joinUser(@RequestParam String id) {
-        userService.joinUser(id);
+    public ResponseEntity<Void> joinUser(@RequestParam String user) {
+        userService.joinUser(user);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
