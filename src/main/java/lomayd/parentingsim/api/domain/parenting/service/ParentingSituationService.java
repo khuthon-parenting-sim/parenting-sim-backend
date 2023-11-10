@@ -1,8 +1,6 @@
 package lomayd.parentingsim.api.domain.parenting.service;
 
-import lomayd.parentingsim.api.domain.parenting.ParentingInfo;
 import lomayd.parentingsim.api.domain.parenting.ParentingSituation;
-import lomayd.parentingsim.api.domain.parenting.dto.ParentingInfoResponseDto;
 import lomayd.parentingsim.api.domain.parenting.dto.ParentingSituationResponseDto;
 import lomayd.parentingsim.api.domain.parenting.repository.ParentingSituationRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ParentingSituationService {
 
-    private ParentingSituationRepository parentingSituationRepository;
+    private final ParentingSituationRepository parentingSituationRepository;
 
     public ParentingSituationResponseDto.BoardInfo getParentingSituationBoard() {
 
