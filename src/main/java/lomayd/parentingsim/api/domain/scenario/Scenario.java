@@ -19,7 +19,7 @@ public class Scenario {
     private int episode;
 
     @Column
-    private int illustration;
+    private String illustration;
 
     @Column
     private String script;

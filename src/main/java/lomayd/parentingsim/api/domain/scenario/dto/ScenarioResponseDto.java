@@ -15,7 +15,7 @@ public class ScenarioResponseDto {
 
         private int id;
         private int episode;
-        private int illustration;
+        private String illustration;
         private String script;
         private int choice_1_id;
         private String choice_1_script;
