@@ -20,7 +20,7 @@ public class ScenarioService {
     }
 
     public ScenarioResponseDto.ScenarioScript nextScenario(int scenario) {
-        Scenario scenario1 = scenarioRepository.findById(scenario).get();
+        Scenario scenario1 = scenarioRepository.findById(scenario+1).get();
 
         return ScenarioResponseDto.ScenarioScript.of(scenario1);
     }
