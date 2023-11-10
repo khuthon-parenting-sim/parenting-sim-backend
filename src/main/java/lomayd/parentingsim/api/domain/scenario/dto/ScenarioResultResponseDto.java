@@ -14,6 +14,7 @@ public class ScenarioResultResponseDto {
 
         private int id;
         private int scenario;
+        private boolean is_correct;
         private String script;
 
 
@@ -21,6 +22,7 @@ public class ScenarioResultResponseDto {
             return ChoiceResult.builder()
                     .id(scenarioResult.getId())
                     .scenario(scenarioResult.getScenario().getId())
+                    .is_correct(scenarioResult.is_correct())
                     .script(scenarioResult.getScript())
                     .build();
         }
