@@ -32,12 +32,14 @@ public class ParentingSituationResponseDto {
 
         private int id;
         private String title;
+        private String subTitle;
 
         public static ParentingSituationResponseDto.BoardPostInfo of(ParentingSituation parentingSituation) {
 
             return ParentingSituationResponseDto.BoardPostInfo.builder()
                     .id(parentingSituation.getId())
                     .title(parentingSituation.getTitle())
+                    .subTitle(parentingSituation.getSubTitle())
                     .build();
         }
     }
@@ -51,6 +53,7 @@ public class ParentingSituationResponseDto {
 
         private int id;
         private String title;
+        private String subTitle;
         private String detail;
         private String good_example_detail;
         private String good_example_video_link;
@@ -61,6 +64,7 @@ public class ParentingSituationResponseDto {
             return PostInfo.builder()
                     .id(parentingSituation.getId())
                     .title(parentingSituation.getTitle())
+                    .subTitle(parentingSituation.getSubTitle())
                     .detail(parentingSituation.getDetail())
                     .good_example_detail(parentingSituation.getGood_example_detail())
                     .good_example_video_link(parentingSituation.getGood_example_video_link())

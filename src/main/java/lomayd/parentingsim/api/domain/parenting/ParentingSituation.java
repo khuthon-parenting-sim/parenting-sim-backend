@@ -21,6 +21,9 @@ public class ParentingSituation {
     private String title;
 
     @Column
+    private String subTitle;
+
+    @Column
     private String detail;
 
     @Column
