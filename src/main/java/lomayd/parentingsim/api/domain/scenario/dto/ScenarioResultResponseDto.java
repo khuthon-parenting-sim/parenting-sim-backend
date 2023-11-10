@@ -16,14 +16,16 @@ public class ScenarioResultResponseDto {
         private int scenario;
         private boolean correct;
         private String script;
+        private String correct_script;
 
 
-        public static ScenarioResultResponseDto.ChoiceResult of(ScenarioResult scenarioResult) {
+        public static ScenarioResultResponseDto.ChoiceResult of(ScenarioResult scenarioResult, String correct_script) {
             return ChoiceResult.builder()
                     .id(scenarioResult.getId())
                     .scenario(scenarioResult.getScenario().getId())
-                    .correct(scenarioResult.is_correct())
+                    .correct(scenarioResult.isCorrect())
                     .script(scenarioResult.getScript())
+                    .correct_script(correct_script)
                     .build();
         }
     }

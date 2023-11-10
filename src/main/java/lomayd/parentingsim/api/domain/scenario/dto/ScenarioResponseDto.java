@@ -42,7 +42,7 @@ public class ScenarioResponseDto {
                     .choice_3_script(scenario.getChoice_3_script())
                     .choice_4_id(scenario.getChoice_3())
                     .choice_4_script(scenario.getChoice_3_script())
-                    .end(scenario.is_end())
+                    .end(scenario.isEnd())
                     .build();
         }
     }

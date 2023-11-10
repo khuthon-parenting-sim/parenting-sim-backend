@@ -22,7 +22,7 @@ public class ScenarioResult {
     private String script;
 
     @Column
-    private boolean is_correct;
+    private boolean correct;
 
     @Column
     private double score_society;

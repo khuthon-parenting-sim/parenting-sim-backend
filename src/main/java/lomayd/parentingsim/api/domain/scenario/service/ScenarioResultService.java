@@ -23,6 +23,8 @@ public class ScenarioResultService {
 
         ScenarioResult scenarioResult = scenarioResultRepository.findById(choice).get();
 
+        ScenarioResult correctScenarioResult = scenarioResultRepository.findByScenarioIdAndCorrect(scenarioResult.getScenario().getId(), true);
+
         User user1 = userRepository.findById(user).get();
 
         user1.setScore_total(user1.getScore_total() + scenarioResult.getScore_society() + scenarioResult.getScore_control() + scenarioResult.getScore_recognition() + scenarioResult.getScore_concentration());
@@ -44,7 +46,7 @@ public class ScenarioResultService {
 
         userLogRepository.save(userLog);
 
-        return ScenarioResultResponseDto.ChoiceResult.of(scenarioResult);
+        return ScenarioResultResponseDto.ChoiceResult.of(scenarioResult, correctScenarioResult.getScript());
     }
 
 }
