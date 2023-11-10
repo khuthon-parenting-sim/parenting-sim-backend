@@ -17,6 +17,7 @@ public class ScenarioService {
     private final ScenarioRepository scenarioRepository;
     private final UserLogRepository userLogRepository;
     private final UserRepository userRepository;
+    private int userLogId = 1;
 
     public ScenarioResponseDto.Script startEpisode(int episode) {
         Scenario scenario = scenarioRepository.findFirstByEpisodeOrderByIdAsc(episode);
@@ -24,10 +25,10 @@ public class ScenarioService {
         Scenario choice_1_scenario = scenarioRepository.findById(scenario.getChoice_1()).get();
         Scenario choice_2_scenario = scenarioRepository.findById(scenario.getChoice_2()).get();
 
-        double choice_1_rate = userLogRepository.countByScenario(choice_1_scenario) * 1.0 / userLogRepository.countBy();
-        double choice_2_rate = userLogRepository.countByScenario(choice_2_scenario) * 1.0 / userLogRepository.countBy();
+        //double choice_1_rate = userLogRepository.countByScenario(choice_1_scenario) * 1.0 / userLogRepository.countBy();
+        //double choice_2_rate = userLogRepository.countByScenario(choice_2_scenario) * 1.0 / userLogRepository.countBy();
 
-        return ScenarioResponseDto.Script.of(scenario, choice_1_scenario, choice_2_scenario, choice_1_rate, choice_2_rate);
+        return ScenarioResponseDto.Script.of(scenario, choice_1_scenario, choice_2_scenario);
     }
 
     public ScenarioResponseDto.Script playEpisode(int scenarioId, String userId) {
@@ -37,10 +38,11 @@ public class ScenarioService {
         Scenario choice_1_scenario = scenarioRepository.findById(scenario.getChoice_1()).get();
         Scenario choice_2_scenario = scenarioRepository.findById(scenario.getChoice_2()).get();
 
-        double choice_1_rate = userLogRepository.countByScenario(choice_1_scenario) * 1.0 / userLogRepository.countBy();
-        double choice_2_rate = userLogRepository.countByScenario(choice_2_scenario) * 1.0 / userLogRepository.countBy();
+        //double choice_1_rate = userLogRepository.countByScenario(choice_1_scenario) * 1.0 / userLogRepository.countBy();
+        //double choice_2_rate = userLogRepository.countByScenario(choice_2_scenario) * 1.0 / userLogRepository.countBy();
 
         UserLog userLog = UserLog.builder()
+                .id(userLogId++)
                 .scenario(scenario)
                 .user(user)
                 .timestamp(System.currentTimeMillis())
@@ -48,7 +50,7 @@ public class ScenarioService {
 
         userLogRepository.save(userLog);
 
-        return ScenarioResponseDto.Script.of(scenario, choice_1_scenario, choice_2_scenario, choice_1_rate, choice_2_rate);
+        return ScenarioResponseDto.Script.of(scenario, choice_1_scenario, choice_2_scenario);
     }
 
     public ScenarioResponseDto.Result getResult(String id) {
