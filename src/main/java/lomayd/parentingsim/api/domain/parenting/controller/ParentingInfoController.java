@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -18,5 +19,10 @@ public class ParentingInfoController {
     @GetMapping("/board")
     public ResponseEntity<ParentingInfoResponseDto.BoardInfo> getParentingInfoBoard() {
         return ResponseEntity.ok(parentingInfoService.getParentingInfoBoard());
+    }
+
+    @GetMapping("/post")
+    public ResponseEntity<ParentingInfoResponseDto.PostInfo> getParentingInfoPost(@RequestParam int id) {
+        return ResponseEntity.ok(parentingInfoService.getParentingInfoPost(id));
     }
 }

@@ -27,4 +27,11 @@ public class ParentingInfoService {
 
         return ParentingInfoResponseDto.BoardInfo.of(boardPostInfos);
     }
+
+    public ParentingInfoResponseDto.PostInfo getParentingInfoPost(int id) {
+
+        ParentingInfo parentingInfo = parentingInfoRepository.findById(id).get();
+
+        return ParentingInfoResponseDto.PostInfo.of(parentingInfo);
+    }
 }
