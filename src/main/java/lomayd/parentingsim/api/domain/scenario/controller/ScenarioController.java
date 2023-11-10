@@ -17,7 +17,13 @@ public class ScenarioController {
     private final ScenarioService scenarioService;
 
     @GetMapping("/start")
-    public ResponseEntity<ScenarioResponseDto.Script> startEpisode(ScenarioRequestDto.Episode data) {
+    public ResponseEntity<ScenarioResponseDto.Script> startEpisode(ScenarioRequestDto.EpisodeStart data) {
         return ResponseEntity.ok(scenarioService.startEpisode(data));
     }
+
+    @GetMapping
+    public ResponseEntity<ScenarioResponseDto.Script> playEpisode(ScenarioRequestDto.EpisodePlay data) {
+        return ResponseEntity.ok(scenarioService.playEpisode(data));
+    }
+
 }

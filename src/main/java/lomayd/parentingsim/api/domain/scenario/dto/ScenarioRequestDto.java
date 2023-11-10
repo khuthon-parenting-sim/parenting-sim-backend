@@ -9,7 +9,17 @@ public class ScenarioRequestDto {
     @Setter
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class Episode {
+    public static class EpisodeStart {
         private String episode;
+    }
+
+    @Builder
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class EpisodePlay {
+        private int scenario;
+        private String user;
     }
 }
