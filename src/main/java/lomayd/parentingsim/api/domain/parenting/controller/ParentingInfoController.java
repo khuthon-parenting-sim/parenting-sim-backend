@@ -30,4 +30,9 @@ public class ParentingInfoController {
     public ResponseEntity<ParentingInfoResponseDto.BoardInfo> searchParentingInfoPost(@RequestParam String type, @RequestParam String search) {
         return ResponseEntity.ok(parentingInfoService.searchParentingInfoPost(type, search));
     }
+
+    @GetMapping("/today")
+    public ResponseEntity<ParentingInfoResponseDto.PostInfo> getTodayParentingInfoPost() {
+        return ResponseEntity.ok(parentingInfoService.getTodayParentingInfoPost());
+    }
 }

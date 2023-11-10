@@ -56,4 +56,11 @@ public class ParentingInfoService {
 
         return ParentingInfoResponseDto.BoardInfo.of(boardPostInfos);
     }
+
+    public ParentingInfoResponseDto.PostInfo getTodayParentingInfoPost() {
+
+        ParentingInfo parentingInfo = parentingInfoRepository.findRandom().get(0);
+
+        return ParentingInfoResponseDto.PostInfo.of(parentingInfo);
+    }
 }

@@ -18,4 +18,7 @@ public interface ParentingInfoRepository extends JpaRepository<ParentingInfo, In
 
     @Query("select p from ParentingInfo p where p.tag like %:search%")
     List<ParentingInfo> findAllByTag(String search);
+
+    @Query(value = "select * from parenting_sim.ParentingInfo order by RAND() limit 1", nativeQuery = true)
+    List<ParentingInfo> findRandom();
 }
