@@ -1,6 +1,5 @@
 package lomayd.parentingsim.api.domain.user.controller;
 
-import lomayd.parentingsim.api.domain.user.dto.UserRequestDto;
 import lomayd.parentingsim.api.domain.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,8 +17,8 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/join")
-    public ResponseEntity<Void> joinUser(@RequestParam UserRequestDto.UserJoin data) {
-        userService.joinUser(data);
+    public ResponseEntity<Void> joinUser(@RequestParam String id) {
+        userService.joinUser(id);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 }

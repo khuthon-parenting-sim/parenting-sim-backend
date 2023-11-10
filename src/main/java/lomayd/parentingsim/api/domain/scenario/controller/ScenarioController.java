@@ -1,6 +1,5 @@
 package lomayd.parentingsim.api.domain.scenario.controller;
 
-import lomayd.parentingsim.api.domain.scenario.dto.ScenarioRequestDto;
 import lomayd.parentingsim.api.domain.scenario.dto.ScenarioResponseDto;
 import lomayd.parentingsim.api.domain.scenario.service.ScenarioService;
 import lombok.RequiredArgsConstructor;
@@ -18,13 +17,13 @@ public class ScenarioController {
     private final ScenarioService scenarioService;
 
     @GetMapping("/start")
-    public ResponseEntity<ScenarioResponseDto.Script> startEpisode(ScenarioRequestDto.EpisodeStart data) {
-        return ResponseEntity.ok(scenarioService.startEpisode(data));
+    public ResponseEntity<ScenarioResponseDto.Script> startEpisode(@RequestParam int episode) {
+        return ResponseEntity.ok(scenarioService.startEpisode(episode));
     }
 
     @GetMapping
-    public ResponseEntity<ScenarioResponseDto.Script> playEpisode(ScenarioRequestDto.EpisodePlay data) {
-        return ResponseEntity.ok(scenarioService.playEpisode(data));
+    public ResponseEntity<ScenarioResponseDto.Script> playEpisode(@RequestParam int scenario, @RequestParam String user) {
+        return ResponseEntity.ok(scenarioService.playEpisode(scenario, user));
     }
 
     @GetMapping("/result")

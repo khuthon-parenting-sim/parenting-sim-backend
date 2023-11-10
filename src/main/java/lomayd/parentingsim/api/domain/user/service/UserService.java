@@ -1,7 +1,6 @@
 package lomayd.parentingsim.api.domain.user.service;
 
 import lomayd.parentingsim.api.domain.user.User;
-import lomayd.parentingsim.api.domain.user.dto.UserRequestDto;
 import lomayd.parentingsim.api.domain.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,9 +11,9 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    public void joinUser(UserRequestDto.UserJoin data) {
+    public void joinUser(String id) {
         User user = User.builder()
-                .id(data.getId())
+                .id(id)
                 .score_point(0)
                 .score_patient(0)
                 .score_manner(0)
