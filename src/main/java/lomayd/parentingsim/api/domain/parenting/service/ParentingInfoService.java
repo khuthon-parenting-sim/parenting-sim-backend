@@ -40,13 +40,13 @@ public class ParentingInfoService {
         List<ParentingInfoResponseDto.BoardPostInfo> boardPostInfos = new ArrayList<>();
         List<ParentingInfo> parentingInfos = new ArrayList<>();
 
-        if(type == "TITLE") {
+        if(type.equals("TITLE")) {
             parentingInfos = parentingInfoRepository.findAllByTitle(search);
         }
-        if(type == "DETAIL") {
+        if(type.equals("DETAIL")) {
             parentingInfos = parentingInfoRepository.findAllByDetail(search);
         }
-        if(type == "TAG") {
+        if(type.equals("TAG")) {
             parentingInfos = parentingInfoRepository.findAllByTag(search);
         }
 
