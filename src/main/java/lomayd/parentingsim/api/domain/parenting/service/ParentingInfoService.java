@@ -34,4 +34,26 @@ public class ParentingInfoService {
 
         return ParentingInfoResponseDto.PostInfo.of(parentingInfo);
     }
+
+    public ParentingInfoResponseDto.BoardInfo searchParentingInfoPost(String type, String search) {
+
+        List<ParentingInfoResponseDto.BoardPostInfo> boardPostInfos = new ArrayList<>();
+        List<ParentingInfo> parentingInfos = new ArrayList<>();
+
+        if(type == "TITLE") {
+            parentingInfos = parentingInfoRepository.findAllByTitle(search);
+        }
+        if(type == "DETAIL") {
+            parentingInfos = parentingInfoRepository.findAllByDetail(search);
+        }
+        if(type == "TAG") {
+            parentingInfos = parentingInfoRepository.findAllByTag(search);
+        }
+
+        for(ParentingInfo p : parentingInfos) {
+            boardPostInfos.add(ParentingInfoResponseDto.BoardPostInfo.of(p));
+        }
+
+        return ParentingInfoResponseDto.BoardInfo.of(boardPostInfos);
+    }
 }

@@ -25,4 +25,9 @@ public class ParentingInfoController {
     public ResponseEntity<ParentingInfoResponseDto.PostInfo> getParentingInfoPost(@RequestParam int id) {
         return ResponseEntity.ok(parentingInfoService.getParentingInfoPost(id));
     }
+
+    @GetMapping("/search")
+    public ResponseEntity<ParentingInfoResponseDto.BoardInfo> searchParentingInfoPost(@RequestParam String type, @RequestParam String search) {
+        return ResponseEntity.ok(parentingInfoService.searchParentingInfoPost(type, search));
+    }
 }
