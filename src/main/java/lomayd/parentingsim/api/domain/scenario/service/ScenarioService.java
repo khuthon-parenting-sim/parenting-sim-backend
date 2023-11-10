@@ -51,4 +51,10 @@ public class ScenarioService {
 
         return ScenarioResponseDto.Script.of(scenario, choice_1_scenario, choice_2_scenario, choice_1_rate, choice_2_rate);
     }
+
+    public ScenarioResponseDto.Result getResult(String id) {
+        User user = userRepository.findById(id).get();
+
+        return ScenarioResponseDto.Result.of(user);
+    }
 }
