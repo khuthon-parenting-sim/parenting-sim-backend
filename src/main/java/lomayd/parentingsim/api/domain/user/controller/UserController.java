@@ -16,12 +16,14 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/join")
+    @CrossOrigin(origins = "*")
     public ResponseEntity<Void> joinUser(@RequestParam String user) {
         userService.joinUser(user);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
     @GetMapping("/result")
+    @CrossOrigin(origins = "*")
     public ResponseEntity<UserResponseDto.Result> getResult(@RequestParam String user) {
         return ResponseEntity.ok(userService.getResult(user));
     }
